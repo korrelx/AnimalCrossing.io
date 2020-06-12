@@ -1,23 +1,37 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <el-container>
+      <el-header>
+        <el-menu class="el-menu-demo" mode="horizontal" default-active="1" @select="handleSelect" router>
+          <el-menu-item index="1" route="/flower">处理中心</el-menu-item>
+          <el-menu-item index="2" route="/HelloWorld">处理中心</el-menu-item>
+        </el-menu>
+      </el-header>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'App',
+    methods: {
+      handleSelect(tab, event) {
+        console.log(tab, event);
+      }
+    }
+  }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Georgia', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  line-height: 1.7;
+  font-size: 14px;
+  color: rgba(0,0,0,.65);
 }
 </style>
