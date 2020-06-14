@@ -3,8 +3,8 @@
     <el-container>
       <el-header>
         <el-menu class="el-menu-demo" mode="horizontal" default-active="1" @select="handleSelect" router>
-          <el-menu-item index="1" route="/flower">处理中心</el-menu-item>
-          <el-menu-item index="2" route="/HelloWorld">处理中心</el-menu-item>
+          <el-menu-item index="1" route="/flower">花卉杂交</el-menu-item>
+          <el-menu-item index="2" route="/HelloWorld">HelloWorld</el-menu-item>
         </el-menu>
       </el-header>
       <el-main>
@@ -27,7 +27,7 @@
 
 <style>
 #app {
-  font-family: 'Georgia', sans-serif;
+  font-family: Georgia, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.7;
