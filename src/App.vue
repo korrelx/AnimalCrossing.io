@@ -27,7 +27,7 @@
 
 <style>
 #app {
-  font-family: Georgia, sans-serif;
+  font-family: Georgia;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.7;

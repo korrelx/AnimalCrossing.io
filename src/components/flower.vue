@@ -1,9 +1,9 @@
 <template>
   <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-    <el-tab-pane v-for="flowerName, nameIndex in flowerSpecies" :key="nameIndex" :name="flowerName">
+    <el-tab-pane v-for="(flowerName, nameIndex) in flowerSpecies" :key="nameIndex" :name="flowerName">
       <span slot="label">{{ flowerName }}</span>
         <el-row class="el-row-wrap" type="flex">
-          <el-row class="el-row-flower" type="flex" align="middle" v-for="(flowerItem, itemIndex) in flowers" :key="itemIndex" >         
+          <el-row class="el-row-flower" type="flex" align="middle" v-for="(flowerItem, itemIndex) in flowers" :key="itemIndex" >
             <el-col>
               <div v-for="(parent, parentIndex) in flowerItem.parents" :key="parentIndex">
                 <img class="plus" src="../assets/plus.png" :style="{ 'display': parentIndex > 0 ? 'block' : 'none' }">
@@ -60,9 +60,9 @@ export default {
   display: block;
   content: "";
   bottom: 0;
-  width: 99%;
-  left: 0;
-  border-bottom: 2px dashed #8a7b66; 
+  width: 80%;
+  left: 10%;
+  border-bottom: 2px dashed #8a7b66;
 }
 .el-row-flower:after {
   position: absolute;

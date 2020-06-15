@@ -23,9 +23,13 @@ def main():
 	writeConfig()
 
 def readConfig():
+	print('开始读取配置...', end='\n')
+	
 	filePath = '.\\' + fileName + '.xlsx'
 	workbook = openpyxl.load_workbook(filePath)
 	worksheet = workbook.active
+	
+	print('配置文件路径：', filePath ,end='\n')
 	
 	dicts = {}
 	for cell_col in list(worksheet.columns)[0][1:]:
@@ -53,13 +57,21 @@ def readConfig():
 		dicts[worksheet[row_index+1][0].value].append(propertys)
 	global data
 	data = dicts
-	# print(dicts, end=" ")	
+	print('读取配置成功...', end='\n')
+	# print(dicts, end="\n")
 
 def writeConfig():
+	print('开始导出配置...', end='\n')
+	
 	filePath = '.\\' + fileName + '.js'
 	with open(filePath, 'w', encoding='UTF-8') as f:
+		print('格式化输出格式...', end='\n')
 		json_dicts=json.dumps(data,indent=4,ensure_ascii=False)
 		json_dicts = json_dicts.lstrip('{\n').rstrip('}\n')
 		f.write(tpl % json_dicts)
+		
+	print('导出路径：', filePath ,end='\n')
 if __name__ == "__main__":
 	main()
+	
+input('配置导出成功，按任意键继续...')
