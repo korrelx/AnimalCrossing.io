@@ -242,19 +242,196 @@ export const flowers = {
                     "desc": "25%"
                 },
                 {
-                    "color": "red",
-                    "gene": "RrYYwwss",
-                    "desc": "25%"
-                },
-                {
                     "color": "white",
                     "gene": "rryyWwss",
                     "desc": "25%"
+                },
+                {
+                    "color": "red",
+                    "gene": "RrYYwwss",
+                    "desc": "50%"
+                }
+            ],
+            "null": [
+                {
+                    "color": "red",
+                    "gene": "RrYYwwss",
+                    "desc": "25%"
+                }
+            ]
+        },
+        {
+            "parents": [
+                {
+                    "color": "red",
+                    "gene": "RRyyWWSs",
+                    "desc": "种子"
+                },
+                {
+                    "color": "red",
+                    "gene": "RRyyWWSs",
+                    "desc": "种子"
+                }
+            ],
+            "children": [
+                {
+                    "color": "pink",
+                    "gene": "RRyyWWSS",
+                    "desc": "25%"
+                },
+                {
+                    "color": "black",
+                    "gene": "RRyyWWss",
+                    "desc": "25%"
+                },
+                {
+                    "color": "red",
+                    "gene": "RRyyWWSs",
+                    "desc": "50%"
+                }
+            ]
+        },
+        {
+            "parents": [
+                {
+                    "color": "black",
+                    "gene": "RRyyWWss",
+                    "desc": "一号黑"
+                },
+                {
+                    "color": "black",
+                    "gene": "RRyyWWss",
+                    "desc": "一号黑"
+                }
+            ],
+            "children": [
+                {
+                    "color": "golden",
+                    "gene": "RRyyWWss",
+                    "desc": "?%"
                 }
             ]
         }
     ],
-    "null": [
-        {}
+    "mums": [
+        {
+            "parents": [
+                {
+                    "color": "red",
+                    "gene": "RRyyWW",
+                    "desc": "种子"
+                },
+                {
+                    "color": "yellow",
+                    "gene": "rrYYWW",
+                    "desc": "种子"
+                }
+            ],
+            "children": [
+                {
+                    "color": "yellow",
+                    "gene": "RrYyWW",
+                    "desc": "100%"
+                }
+            ]
+        },
+        {
+            "parents": [
+                {
+                    "color": "yellow",
+                    "gene": "RrYyWW",
+                    "desc": "一号黄"
+                },
+                {
+                    "color": "red",
+                    "gene": "RRyyWW",
+                    "desc": "种子"
+                }
+            ],
+            "children": [
+                {
+                    "color": "purple",
+                    "gene": "RRYyWW",
+                    "desc": "25%"
+                },
+                {
+                    "color": "pink",
+                    "gene": "RryyWW",
+                    "desc": "25%"
+                },
+                {
+                    "color": "yellow",
+                    "gene": "RrYyWW",
+                    "desc": "25%"
+                },
+                {
+                    "color": "red",
+                    "gene": "RRyyWW",
+                    "desc": "25%"
+                }
+            ]
+        },
+        {
+            "parents": [
+                {
+                    "color": "purple",
+                    "gene": "RRYyWW",
+                    "desc": "一号紫"
+                },
+                {
+                    "color": "purple",
+                    "gene": "RRYyWW",
+                    "desc": "一号紫"
+                }
+            ],
+            "children": [
+                {
+                    "color": "green",
+                    "gene": "RRYYWW",
+                    "desc": "25%"
+                },
+                {
+                    "color": "red",
+                    "gene": "RRyyWW",
+                    "desc": "25%"
+                },
+                {
+                    "color": "purple",
+                    "gene": "RRYyWW",
+                    "desc": "50%"
+                }
+            ]
+        },
+        {
+            "parents": [
+                {
+                    "color": "white",
+                    "gene": "rryyWw",
+                    "desc": "种子"
+                },
+                {
+                    "color": "white",
+                    "gene": "rryyWw",
+                    "desc": "种子"
+                }
+            ],
+            "children": [
+                {
+                    "color": "purple",
+                    "gene": "rryyww",
+                    "desc": "25%"
+                },
+                {
+                    "color": "white",
+                    "gene": "rryyWW",
+                    "desc": "25%"
+                },
+                {
+                    "color": "white",
+                    "gene": "rryyWw",
+                    "desc": "50%"
+                }
+            ]
+        }
     ]
 };

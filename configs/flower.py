@@ -1,4 +1,5 @@
 # coding=utf-8
+import os
 import openpyxl
 import json
 
@@ -23,14 +24,12 @@ def main():
 	writeConfig()
 
 def readConfig():
-	print('开始读取配置...', end='\n')
-	
 	filePath = '.\\' + fileName + '.xlsx'
+	print('开始读取配置: ', os.path.abspath(filePath), end='\n')
+
 	workbook = openpyxl.load_workbook(filePath)
 	worksheet = workbook.active
-	
-	print('配置文件路径：', filePath ,end='\n')
-	
+
 	dicts = {}
 	for cell_col in list(worksheet.columns)[0][1:]:
 		if cell_col.value not in dicts:
@@ -40,7 +39,7 @@ def readConfig():
 		propertys = {}
 		for col_index, cell in enumerate(list(row_item)):
 			if row_index == 0 or col_index == 0 or cell.value == None:
-				continue 
+				continue
 
 			propertyKey = worksheet[1][col_index].value
 			if propertyKey not in propertys:
@@ -57,21 +56,20 @@ def readConfig():
 		dicts[worksheet[row_index+1][0].value].append(propertys)
 	global data
 	data = dicts
-	print('读取配置成功...', end='\n')
+	print('读取配置成功...', end='\n\n')
 	# print(dicts, end="\n")
 
 def writeConfig():
-	print('开始导出配置...', end='\n')
-	
-	filePath = '.\\' + fileName + '.js'
+	filePath = '..\src\data\\' + fileName + '.js'
+	print('开始导出配置: ', os.path.abspath(filePath), end='\n')
+
 	with open(filePath, 'w', encoding='UTF-8') as f:
-		print('格式化输出格式...', end='\n')
+		print('格式化输出格式...', end='\n\n')
 		json_dicts=json.dumps(data,indent=4,ensure_ascii=False)
 		json_dicts = json_dicts.lstrip('{\n').rstrip('}\n')
 		f.write(tpl % json_dicts)
-		
-	print('导出路径：', filePath ,end='\n')
+
 if __name__ == "__main__":
-	main()
-	
-input('配置导出成功，按任意键继续...')
+  main()
+
+input('配置导出成功,请按Enter键退出...')

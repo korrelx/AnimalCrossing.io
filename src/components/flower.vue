@@ -1,34 +1,34 @@
 <template>
-  <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-    <el-tab-pane v-for="(flowerName, nameIndex) in flowerSpecies" :key="nameIndex" :name="flowerName">
-      <span slot="label">{{ flowerName }}</span>
-        <el-row class="el-row-wrap" type="flex">
-          <el-row class="el-row-flower" type="flex" align="middle" v-for="(flowerItem, itemIndex) in flowers" :key="itemIndex" >
-            <el-col>
-              <div v-for="(parent, parentIndex) in flowerItem.parents" :key="parentIndex">
-                <img class="plus" src="../assets/plus.png" :style="{ 'display': parentIndex > 0 ? 'block' : 'none' }">
-                <el-card class="flower_card" :body-style="{ padding: '6px 0', display: 'flex' }">
-                  <img :src="require(`../assets/flower_${ flowerName }_${ parent.color }.png`)">
-                  <div><div>{{ parent.gene }}</div><div>{{ parent.desc }}</div></div>
-                </el-card>
-              </div>
-            </el-col>
-            <img class="arrow" src="../assets/arrow.png">
-            <el-col>
-              <el-card v-for="(child, childIndex) in flowerItem.children" :key="childIndex" :style="{ 'margin-top': childIndex > 0 ? '20px' : '0px' }"  class="flower_card" :body-style="{ padding: '6px 0', display: 'flex' }">
-                <img :src="require(`../assets/flower_${ flowerName }_${ child.color }.png`)">
-                <div><div>{{ child.gene }}</div><div>{{ child.desc }}</div></div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </el-row>
+<div>
+  <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane v-for="(flowerName, nameIndex) in flowerSpecies" :key="nameIndex" :name="flowerName" :label="flowerName">
     </el-tab-pane>
   </el-tabs>
+  <el-row class="el-row-wrap" type="flex">
+    <el-row class="el-row-flower" type="flex" align="middle" v-for="(flowerItem, itemIndex) in flowers[activeName]" :key="itemIndex" >
+      <el-col>
+        <div v-for="(parent, parentIndex) in flowerItem.parents" :key="parentIndex">
+          <img class="plus" src="../assets/plus.png" :style="{ 'display': parentIndex > 0 ? 'block' : 'none' }">
+          <el-card class="flower_card" :body-style="{ padding: '6px 0', display: 'flex' }">
+            <img :src="require(`../assets/flower_${ activeName }_${ parent.color }.png`)">
+            <div><div>{{ parent.gene }}</div><div>{{ parent.desc }}</div></div>
+          </el-card>
+        </div>
+      </el-col>
+      <img class="arrow" src="../assets/arrow.png">
+      <el-col>
+        <el-card v-for="(child, childIndex) in flowerItem.children" :key="childIndex" :style="{ 'margin-top': childIndex > 0 ? '20px' : '0px' }"  class="flower_card" :body-style="{ padding: '6px 0', display: 'flex' }">
+          <img :src="require(`../assets/flower_${ activeName }_${ child.color }.png`)">
+          <div><div>{{ child.gene }}</div><div>{{ child.desc }}</div></div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </el-row>
+</div>
 </template>
 
 <script>
 import {flowers} from '../data/flower'
-flowers.rose[0].parents[0]
 export default {
   name: "flower",
   data() {
@@ -36,19 +36,38 @@ export default {
         activeName: 'rose',
         flowerSpecies: [
           'rose',
+          'mums',
         ],
-        flowers: flowers['rose']
+        flowers: flowers
       };
   },
   methods: {
       handleClick(tab, event) {
-          this.flowers = flowers[tab.name]
+          // this.flowers = flowers[tab.name]
       }
   }
 }
 </script>
 
 <style scoped>
+/deep/ .el-tabs__header {
+    margin: 0px 12px;
+}
+/deep/ .el-tabs__nav-wrap::after {
+  display: none;
+}
+/deep/ .el-tabs__item {
+    display: inline;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #dcd1a0;
+    margin: 0 6px 6px 0;
+    padding: 5px 20px !important;
+} /deep/ .is-active {
+    background: #8a7b66;
+    color: #fff;
+}
 .el-row-wrap {
   flex-flow: row wrap;
 }
