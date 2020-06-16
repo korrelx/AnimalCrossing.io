@@ -45,7 +45,8 @@
   line-height: 30px !important;
   margin: 8px 16px !important;
   padding: 0px;
-}:hover {
+}
+.el-menu-item:hover {
   color: rgba(138, 123, 102, .65) !important;
 }
 .is-active span {
