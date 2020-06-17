@@ -1,5 +1,6 @@
 <template>
 <div>
+  <div class="tip">Tips：一号白玫瑰和一号紫玫瑰杂交产生的紫玫瑰后代可以直接自我复制再自交，三代内不出白玫瑰可直接丢弃。</div>
   <el-tabs v-model="activeName" @tab-click="handleClick">
     <el-tab-pane v-for="(flowerName, nameIndex) in flowerSpecies" :key="nameIndex" :name="flowerName" :label="flowerName">
     </el-tab-pane>
@@ -50,13 +51,17 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .el-tabs__header {
+.tip {
+  margin: 12px;
+  color: black;
+}
+div >>> .el-tabs__header {
     margin: 0px 12px;
 }
-/deep/ .el-tabs__nav-wrap::after {
+div >>> .el-tabs__nav-wrap::after {
   display: none;
 }
-/deep/ .el-tabs__item {
+div >>> .el-tabs__item {
     display: inline;
     border-radius: 4px;
     font-size: 14px;
@@ -64,9 +69,16 @@ export default {
     background: #dcd1a0;
     margin: 0 6px 6px 0;
     padding: 5px 20px !important;
-} /deep/ .is-active {
+}
+div >>> .is-active {
     background: #8a7b66;
-    color: #fff;
+    color: white;
+}
+div >>> .el-tabs__item:hover {
+  color: #8a7b66;
+}
+div >>> .is-active:hover {
+  color: white;
 }
 .el-row-wrap {
   flex-flow: row wrap;
@@ -110,5 +122,4 @@ export default {
   width: 24px;
   margin: 6px auto;
 }
-
 </style>
