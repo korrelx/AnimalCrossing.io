@@ -1,6 +1,9 @@
 <template>
 <div>
-  <div class="tip">Tips：一号白玫瑰和一号紫玫瑰杂交产生的紫玫瑰后代可以直接自我复制再自交，三代内不出白玫瑰可直接丢弃。</div>
+  <div class="tip">
+    Tips：一号白玫瑰和一号紫玫瑰杂交产生的紫玫瑰后代可以直接自我复制再自交，三代内不出二号白玫瑰可直接丢弃。
+    或者与种子培育出的黄玫瑰杂交，三代内能出黄玫瑰就是二号紫玫瑰。
+  </div>
   <el-tabs v-model="activeName" @tab-click="handleClick">
     <el-tab-pane v-for="(flowerName, nameIndex) in flowerSpecies" :key="nameIndex" :name="flowerName" :label="flowerName">
     </el-tab-pane>
